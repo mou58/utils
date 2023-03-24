@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 # DICOM directory
-dir = '/dicom'
+dir = '\dicom\'
 
 names = os.listdir(dir)
 
@@ -25,7 +25,6 @@ dcm_data = np.zeros(dim, dtype=dcm_slice.pixel_array.dtype)
 # Iterate over all slices
 # Assuming names are stored as '0.dcm', '1.dcm', '2.dcm', etc. 
 for name in names:
-    print(name)
     idx = int(os.path.splitext(name)[0])
     dcm = pydicom.dcmread(os.path.join(dir, name))
     dcm_data[:,:,idx] = dcm.pixel_array
